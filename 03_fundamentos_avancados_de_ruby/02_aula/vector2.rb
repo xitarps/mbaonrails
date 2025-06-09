@@ -12,11 +12,11 @@ class Vector2
   end
 
   def vector_multiplied_by_number(number)
-    vector.map{ |item| item * number }.to_s
+    Vector2.new(*vector.map{ |item| item * number })
   end
 
   def vector_multiplied_by_vector
     combinations = vector.zip(vector)
-    combinations.sum { |combination| combination.inject(1){|acc, i| acc * i} }.to_s
+    combinations.sum { |combination| combination.inject(1){|acc, i| acc * i} }
   end
 end
