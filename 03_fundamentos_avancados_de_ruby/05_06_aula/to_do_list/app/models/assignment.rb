@@ -3,4 +3,9 @@ class Assignment < ApplicationRecord
 
   scope :deleted, ->{ where.not(delete_date: nil) }
   scope :non_deleted, ->{ where(delete_date: nil) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "delete_date", "description", "due_date", "id",
+     "id_value", "status", "title", "updated_at"]
+  end
 end

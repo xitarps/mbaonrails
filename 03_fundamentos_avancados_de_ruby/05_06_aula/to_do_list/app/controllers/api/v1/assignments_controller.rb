@@ -2,7 +2,7 @@ class Api::V1::AssignmentsController < Api::V1::ApplicationController
   before_action :fetch_assignment, only: %i[show update destroy]
 
   def index
-    @assignments = Assignment.non_deleted
+    @assignments = Assignment.non_deleted.ransack(params[:q]).result(distinct: true)
 
     render json: @assignments
   end
