@@ -1,24 +1,33 @@
-# README
+# Exercicio Aula 05 e 06
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Criando uma API de Tarefas com Rails
 
-Things you may want to cover:
+### Teconlogias:
+ 
+ - Ruby
+ - Rails
+ - PostgreSQL
+ - SolidQueue
+ - Ransack
 
-* Ruby version
+### Funcionalidades
 
-* System dependencies
+- API permite criar, atualizar, deletar,
+visualizar e listar tarefas
 
-* Configuration
+- Uma Tarefa é composta por: título, descrição, status
 
-* Database creation
+- Os status de uma tarefa são: Em andamento, Em atraso, Concluída e Cancelada
 
-* Database initialization
+- O endpoint de DELETE não remove o registro da tarefa, apenas a marca como “Cancelada”
 
-* How to run the test suite
+- Uma tarefa pode ter um campo “Data de entrega”, que é opcional.
+  Quando uma tarefa não é concluída até essa data, seu status é atualizado automaticamente para “Em atraso”(diariamente)
 
-* Services (job queues, cache servers, search engines, etc.)
+- É possível filtrar tarefas por status, título, descrição, data de criação e data de entrega
+  Atravez do Ransack
+  ex:
 
-* Deployment instructions
-
-* ...
+  ```
+  http://127.0.0.1:3000/api/v1/assignments.json?q[title_cont]=mod
+  ```
