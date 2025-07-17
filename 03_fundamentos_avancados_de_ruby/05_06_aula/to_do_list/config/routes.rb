@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  
+  namespace :api, constraints: ->(req) { %w[json].include? req.format } do
+    namespace :v1 do
+      resources :assignments
+    end
+  end
 end
