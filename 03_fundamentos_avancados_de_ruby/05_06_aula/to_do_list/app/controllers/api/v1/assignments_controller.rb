@@ -26,7 +26,7 @@ class Api::V1::AssignmentsController < Api::V1::ApplicationController
   end
 
   def destroy
-    @assignment.update(delete_date: Time.current)
+    @assignment.update(delete_date: Time.current, status: :canceled)
 
     render json: {}, status: :no_content
   end
